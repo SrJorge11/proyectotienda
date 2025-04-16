@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TrendyWear - Tienda de ropa con estilo, calidad y personalidad. Descubre nuestras colecciones únicas.">
+    <meta name="keywords" content="moda, ropa, trendy, estilo, TrendyWear">
+    <title>TrendyWear - Tienda de Ropa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <h1>TrendyWear</h1>
+            <div class="nav-links">
+                <a href="#home">Inicio</a>
+                <a href="#products">Productos</a>
+                <a href="#contact">Contacto</a>
+                <div class="cart-icon">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section id="home" class="hero">
+        <div class="hero-carousel">
+            <div class="carousel-item active" style="background-image: url('https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')"></div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')"></div>
+            <div class="carousel-item" style="background-image: url('https://images.unsplash.com/photo-1541099649105-f69ad21f3246?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80')"></div>
+        </div>
+        <div class="hero-content">
+            <h2 id="hero-title">Descubre la Moda de TrendyWear</h2>
+            <p>Estilo, calidad y personalidad en cada prenda.</p>
+            <a href="#products" class="btn">Ver Colección</a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse"></div>
+        </div>
+    </section>
+
+    <!-- Sección Productos -->
+    <section id="products" class="products">
+        <div class="products-header">
+            <h2 id="products-title">Nuestros Productos</h2>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Buscar productos...">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
+        
+        <div class="filters-container">
+            <div class="category-filters">
+                <button class="filter-btn active" data-category="all">Todos</button>
+                <button class="filter-btn" data-category="playeras">Playeras</button>
+                <button class="filter-btn" data-category="pantalones">Pantalones</button>
+                <button class="filter-btn" data-category="calcetines">Calcetines</button>
+                <button class="filter-btn" data-category="chaquetas">Chaquetas</button>
+                <button class="filter-btn" data-category="accesorios">Accesorios</button>
+            </div>
+            
+            <div class="price-filter">
+                <label for="priceRange">Filtrar por precio:</label>
+                <input type="range" id="priceRange" min="0" max="1600" value="1600">
+                <span id="priceValue">Hasta $1600</span>
+            </div>
+        </div>
+        
+        <div class="loader" id="loader"></div>
+        <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact" class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>TrendyWear</h3>
+                <p>La mejor selección de moda para tu estilo único.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +52 1 625 133 6363</p>
+                <p><i class="fas fa-envelope"></i> info@trendywear.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociales</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/tu_pagina" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/tu_cuenta" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com/tu_cuenta" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 TrendyWear. Todos los derechos reservados.</p>
+            <div class="contact-container">
+                <a href="#" class="btn contact-btn" onclick="contactOwner()">Contáctanos por WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

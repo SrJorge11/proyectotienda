@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Carrito de compras de TrendyWear. Revisa los productos que has añadido.">
+    <meta name="keywords" content="carrito, compras, TrendyWear">
+    <title>TrendyWear - Carrito de Compras</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Estilos específicos para los botones de cantidad */
+        .quantity-selector {
+            display: flex;
+            justify-content: center; /* Centrado */
+            align-items: center;
+            gap: 12px;
+            margin: 1.5rem 0;
+            background: #f9f9f9;
+            padding: 10px 14px;
+            border-radius: 30px;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .quantity-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            font-size: 1.4rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(255, 111, 97, 0.3);
+        }
+
+        .quantity-btn:hover {
+            background-color: #e55a50;
+            transform: scale(1.15);
+            box-shadow: 0 6px 12px rgba(255, 111, 97, 0.5);
+        }
+
+        .quantity-btn:active {
+            transform: scale(0.9);
+            box-shadow: 0 2px 4px rgba(255, 111, 97, 0.2);
+        }
+
+        .quantity-btn:disabled {
+            background-color: #d3d3d3;
+            color: #888;
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .quantity-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #222;
+            min-width: 34px;
+            text-align: center;
+        }
+
+        /* Estilo para el total */
+        .cart-total {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #222;
+        }
+
+        /* Estilo para el botón de comprar */
+        .buy-btn {
+            background-color: #28a745; /* Verde */
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .buy-btn:hover {
+            background-color: #218838; /* Verde más oscuro */
+            transform: scale(1.05);
+        }
+
+        .buy-btn:active {
+            transform: scale(0.95);
+        }
+
+        /* Ajustes para dispositivos móviles */
+        @media (max-width: 480px) {
+            .quantity-selector {
+                padding: 8px 12px;
+            }
+
+            .quantity-btn {
+                width: 38px;
+                height: 38px;
+                font-size: 1.2rem;
+            }
+
+            .quantity-value {
+                font-size: 1.2rem;
+                min-width: 30px;
+            }
+
+            .cart-total {
+                font-size: 1.3rem;
+            }
+
+            .buy-btn {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de Navegación -->
+    <nav class="navbar">
+        <div class="container">
+            <h1>TrendyWear</h1>
+            <div class="nav-links">
+                <a href="index.html#home">Inicio</a>
+                <a href="index.html#products">Productos</a>
+                <a href="index.html#contact">Contacto</a>
+                <div class="cart-icon">
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                    <span class="cart-count">0</span>
+                </div>
+            </div>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Carrito -->
+    <section class="cart-section">
+        <div class="container">
+            <h2>Tu Carrito</h2>
+            <div class="cart-grid" id="cartGrid"></div>
+            <div class="cart-actions">
+                <button class="btn clear-cart" id="clearCart">Vaciar Carrito</button>
+                <a href="index.html#products" class="btn">Seguir Comprando</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>TrendyWear</h3>
+                <p>La mejor selección de moda para tu estilo único.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-phone"></i> +52 1 625 133 6363</p>
+                <p><i class="fas fa-envelope"></i> info@trendywear.com</p>
+            </div>
+            <div class="footer-section">
+                <h3>Redes Sociales</h3>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/tu_pagina" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/tu_cuenta" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.twitter.com/tu_cuenta" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 TrendyWear. Todos los derechos reservados.</p>
+            <div class="contact-container">
+                <a href="#" class="btn contact-btn" onclick="contactOwner()">Contáctanos por WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
